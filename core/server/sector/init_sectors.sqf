@@ -11,6 +11,8 @@ if(!isDedicated) exitWith {};
 		_x setMarkerType "ICON";
 		_x setMarkerShape "n_art";
 		_x setMarkerColor "ColorOPFOR";
+		_x setVariable ["side", east, true];
+		_x setVariable ["condition", "neutral", true];
 		CTI_SECTORS pushback _x;
 	};
 
