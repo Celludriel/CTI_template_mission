@@ -5,7 +5,7 @@ if(!isDedicated) exitWith {};
   _currentMarker = toArray _x;
   _currentMarker resize 8;
 
-	["Processing map marker %1", toString _currentMarker] call F_log;
+	[["Processing map marker %1", _x]] call F_log;
 
   if ( toString _currentMarker == "sec_town" ) then {
 		_x setMarkerType "ICON";
@@ -13,12 +13,14 @@ if(!isDedicated) exitWith {};
 		_x setMarkerColor "ColorOPFOR";
 
 		_markerLocation = getmarkerpos _x;
-		_markerLocation setVariable ["markerName", _x, false];
-		_markerLocation setVariable ["side", east, false];
-		_markerLocation setVariable ["condition", "neutral", false];
-		CTI_SECTOR_LOCATIONS pushback _markerLocation;
+		_invisibleSectorObject = [_markerLocation] call F_spawnInvisibleObject;
+		_invisibleSectorObject setVariable ["markerName", _x, false];
+		_invisibleSectorObject setVariable ["side", east, false];
+		_invisibleSectorObject setVariable ["condition", "neutral", false];
+
+		CTI_SECTOR_LOCATIONS pushback _invisibleSectorObject;
 	};
 
 } forEach allMapMarkers;
 
-["Created %1 sectors", count CTI_SECTOR_LOCATIONS] call F_log;
+[["Created %1 sectors", count CTI_SECTOR_LOCATIONS]] call F_log;

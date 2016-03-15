@@ -1,0 +1,10 @@
+if(!isDedicated) exitWith {};
+
+params ["_coord"];
+
+_object = createVehicle ["Sign_Arrow_Large_Green_F",_coord,[],0,"can_collide"];
+_object enableSimulationGlobal false;
+
+[_object] hidebjectGlobal true;
+
+_object
