@@ -11,11 +11,14 @@ if(!isDedicated) exitWith {};
 		_x setMarkerType "ICON";
 		_x setMarkerShape "n_art";
 		_x setMarkerColor "ColorOPFOR";
-		_x setVariable ["side", east, true];
-		_x setVariable ["condition", "neutral", true];
-		CTI_SECTORS pushback _x;
+
+		_markerLocation = getmarkerpos _x;
+		_markerLocation setVariable ["markerName", _x, false];
+		_markerLocation setVariable ["side", east, false];
+		_markerLocation setVariable ["condition", "neutral", false];
+		CTI_SECTOR_LOCATIONS pushback _markerLocation;
 	};
 
 } forEach allMapMarkers;
 
-["Created %1 sectors", count CTI_SECTORS] call F_log;
+["Created %1 sectors", count CTI_SECTOR_LOCATIONS] call F_log;

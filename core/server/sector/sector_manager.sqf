@@ -8,6 +8,6 @@ PRESENCE_MANAGER_RUNNING = true;
 	//check if sector needs to be contested
 
 	//check if sector needs to change side
-} forEach CTI_SECTORS;
+} forEach CTI_SECTOR_LOCATIONS;
 
 PRESENCE_MANAGER_RUNNING = false;
