@@ -8,29 +8,35 @@ _sectorSide = _sector getVariable "side";
 _sectorLocation = getpos _sector;
 
 if(_sectorSide != WEST) then {
-	_count = [_sector, ACTIVATION_RANGE, WEST] call F_getUnitCount;
 	_sectorState = _sector getVariable "condition";
 
-	if(_count == 0 && _sectorState != 'neutral') then {
-		//mark the sector for deactivation, the deactivation will happen later
-		_sector setVariable ["condition", "deactivation", false];
-		_sector setVariable ["deactivationTime", time + SECONDS_TO_DEACTIVATION, false];
+	if(_sectorState != 'neutral' && _sectorState != 'deactivation') then {
+		_count = [_sector, ACTIVATION_RANGE, WEST] call F_getUnitCount;
+		if(_count == 0) then {
+			//mark the sector for deactivation, the deactivation will happen later
+			_sector setVariable ["condition", "deactivation", false];
+			_sector setVariable ["deactivationTime", time + SECONDS_TO_DEACTIVATION, false];
+		};
 	};
 
-	_deactivationTime = _sector getVariable "deactivationTime";
+	//check if a sector in deactivation shouldn't be really deactivated
+	if(_sectorState == 'deactivation') then {
+		_deactivationTime = _sector getVariable "deactivationTime";
+		if(time >= _deactivationTime) then {
+			//sector changes back to neutral
+			_sector setVariable ["condition", "neutral", false];
 
-	if(time >= _deactivationTime) then {
-		//sector changes back to neutral
-		_sector setVariable ["condition", "neutral", false];
+			//any markers will be removed
+			_indicatorName = [_sector] call F_createSectorIndicatorName;
+			[["_indicatorName: %1", _indicatorName]] call F_log;
+			[["Deleting indicator marker"]] call F_log;
+			deleteMarker _indicatorName;
+			[["Indicator marker %1 deleted", _indicatorName]] call F_log;
 
-		//any markers will be removed
-		_indicatorName = [_sector] call F_createSectorIndicatorName;
-		deleteMarker _indicatorName;
-
-		//run any scripts related to deactivating a sector
-		{
-			[_sector] execVM _x;
-		} forEach SECTOR_DEACTIVATION_SCRIPTS;
+			//run any scripts related to deactivating a sector
+			{
+				[_sector] execVM _x;
+			} forEach SECTOR_DEACTIVATION_SCRIPTS;
+		};
 	};
-
 };

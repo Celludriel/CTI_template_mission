@@ -16,9 +16,15 @@ if(_sectorSide != WEST) then {
 		_sector setVariable ["condition", "active", false];
 
 		//create or update indication marker
+		_marker = nil;
 		_indicatorName = [_sector] call F_createSectorIndicatorName;
+		[["_indicatorName: %1", _indicatorName]] call F_log;
 		if (isNil (_indicatorName)) then {
+			[["Creating indicator marker"]] call F_log;
 			_marker = createMarker [_indicatorName, _sectorLocation];
+			[["%1 marker created", _marker]] call F_log;
+		} else {
+			_marker = _indicatorName;
 		};
 
 		[_marker, "ColorUNKNOWN", SECTOR_RANGE] call F_setIndicatorMarker;

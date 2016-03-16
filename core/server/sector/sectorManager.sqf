@@ -1,4 +1,4 @@
-if (!isDedicated or PRESENCE_MANAGER_RUNNING) exitWith {}
+if (!isDedicated or PRESENCE_MANAGER_RUNNING) exitWith {};
 
 PRESENCE_MANAGER_RUNNING = true;
 
