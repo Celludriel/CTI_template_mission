@@ -5,8 +5,11 @@ if(!isDedicated) exitWith {};
 F_addOneSecondHearthbeatScript = compileFinal preprocessFileLineNumbers "core\server\system\functions\F_addOneSecondHearthbeatScript.sqf";
 F_addSectorActivationScript = compileFinal preprocessFileLineNumbers "core\server\system\functions\F_addSectorActivationScript.sqf";
 F_addSectorDeActivationScript = compileFinal preprocessFileLineNumbers "core\server\system\functions\F_addSectorDeActivationScript.sqf";
+F_addSectorContestedScript = compileFinal preprocessFileLineNumbers "core\server\system\functions\F_addSectorContestedScript.sqf";
 F_createSectorIndicatorName = compileFinal preprocessFileLineNumbers "core\server\system\functions\F_createSectorIndicatorName.sqf";
 F_setIndicatorMarker = compileFinal preprocessFileLineNumbers "core\server\system\functions\F_setIndicatorMarker.sqf";
+F_deleteIndicatorMarker = compileFinal preprocessFileLineNumbers "core\server\system\functions\F_deleteIndicatorMarker.sqf";
+F_createOrUpdateIndicationMarker = compileFinal preprocessFileLineNumbers "core\server\system\functions\F_createOrUpdateIndicationMarker.sqf";
 F_spawnInvisibleObject = compileFinal preprocessFileLineNumbers "core\server\system\functions\F_spawnInvisibleObject.sqf";
 
 [["Loaded server core functions"]] call F_log;

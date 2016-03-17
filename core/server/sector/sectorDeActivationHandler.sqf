@@ -19,7 +19,7 @@ if(_sectorSide != WEST) then {
 		};
 	};
 
-	//check if a sector in deactivation shouldn't be really deactivated
+	//check if a sector in deactivation should really be deactivated
 	if(_sectorState == 'deactivation') then {
 		_deactivationTime = _sector getVariable "deactivationTime";
 		if(time >= _deactivationTime) then {
@@ -27,16 +27,10 @@ if(_sectorSide != WEST) then {
 			_sector setVariable ["condition", "neutral", false];
 
 			//any markers will be removed
-			_indicatorName = [_sector] call F_createSectorIndicatorName;
-			[["_indicatorName: %1", _indicatorName]] call F_log;
-			[["Deleting indicator marker"]] call F_log;
-			deleteMarker _indicatorName;
-			[["Indicator marker %1 deleted", _indicatorName]] call F_log;
+			[_sector] call F_deleteIndicatorMarker;
 
 			//run any scripts related to deactivating a sector
-			{
-				[_sector] execVM _x;
-			} forEach SECTOR_DEACTIVATION_SCRIPTS;
+			[SECTOR_DEACTIVATION_SCRIPTS, [_sector]] call F_runArrayOfScriptsUnsynced;
 		};
 	};
 };

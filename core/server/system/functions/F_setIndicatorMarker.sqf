@@ -1,6 +1,7 @@
 if(!isDedicated) exitWith {};
 
 params [ "_marker", "_color", "_range" ];
+private [ "_marker", "_color", "_range" ];
 
 _marker setMarkerColor _color;
 _marker setMarkerShape "ELLIPSE";

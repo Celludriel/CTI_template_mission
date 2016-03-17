@@ -5,7 +5,6 @@ private "_sector";
 
 // a sector can only activate if it's not of the BlueFor side
 _sectorSide = _sector getVariable "side";
-_sectorLocation = getpos _sector;
 
 if(_sectorSide != WEST) then {
 	_count = [_sector, ACTIVATION_RANGE, WEST] call F_getUnitCount;
@@ -16,27 +15,23 @@ if(_sectorSide != WEST) then {
 		_sector setVariable ["condition", "active", false];
 
 		//create or update indication marker
-		_marker = nil;
-		_indicatorName = [_sector] call F_createSectorIndicatorName;
-		[["_indicatorName: %1", _indicatorName]] call F_log;
-		if (isNil (_indicatorName)) then {
-			[["Creating indicator marker"]] call F_log;
-			_marker = createMarker [_indicatorName, _sectorLocation];
-			[["%1 marker created", _marker]] call F_log;
-		} else {
-			_marker = _indicatorName;
-		};
-
-		[_marker, "ColorUNKNOWN", SECTOR_RANGE] call F_setIndicatorMarker;
+		[_sector, "ColorUNKOWN", SECTOR_RANGE] call F_createOrUpdateIndicationMarker;
 
 		//run any scripts related to activating a sector
-		{
-			[_sector] execVM _x;
-		} forEach SECTOR_ACTIVATION_SCRIPTS;
+		[SECTOR_ACTIVATION_SCRIPTS, [_sector]] call F_runArrayOfScriptsUnsynced;
 	};
 
 	if(_count > 0 && _sectorState == 'deactivation') then {
 		//reactivate the sector but nothing more needs to happen
 		_sector setVariable ["condition", "active", false];
+	};
+
+	if(_sectorState == 'contested') then {
+		_sectorCount = [_sector, SECTOR_RANGE, WEST] call F_getUnitCount;
+		if(_sectorCount == 0) then {
+			//reactivate the sector and change the color of the marker
+			_sector setVariable ["condition", "active", false];
+			[_sector, "ColorUNKOWN", SECTOR_RANGE] call F_createOrUpdateIndicationMarker;
+		};
 	};
 };
