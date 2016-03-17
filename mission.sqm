@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=14;
+		nextID=18;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={2105.8928,48.458721,5671.8228};
-		dir[]={0.23102282,-0.68799144,0.68798947};
-		up[]={0.21900673,0.72571307,0.65220702};
-		aside[]={0.94799376,1.3256431e-007,-0.31832844};
+		pos[]={2100.3674,35.252106,4081.2114};
+		dir[]={0,-0.70710683,0.70710683};
+		up[]={0,0.70710677,0.70710677};
+		aside[]={0.99999994,0,-0};
 	};
 };
 binarizationWanted=0;
@@ -28,7 +28,8 @@ addons[]=
 	"A3_Characters_F_BLUFOR",
 	"a3_characters_f",
 	"A3_Soft_F_MRAP_01",
-	"A3_Modules_F_Multiplayer"
+	"A3_Modules_F_Multiplayer",
+	"A3_Data_F_Curator_Characters"
 };
 randomSeed=9028453;
 class ScenarioData
@@ -181,12 +182,12 @@ class Mission
 	};
 	class Entities
 	{
-		items=6;
+		items=8;
 		class Item0
 		{
 			dataType="Marker";
-			position[]={2099.3938,2.6619029,4114.3418};
-			name="sec_fuel_nisi_bay";
+			position[]={2841.3931,39.215607,5544.2778};
+			name="sec_town_nisi_bay";
 			text="Nisi Bay";
 			type="Empty";
 			id=0;
@@ -720,6 +721,62 @@ class Mission
 				};
 				nAttributes=4;
 			};
+		};
+		class Item6
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2969.2178,3.4546871,6063.0747};
+					};
+					side="East";
+					flags=3;
+					class Attributes
+					{
+					};
+					id=15;
+					type="o_survivor_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=14;
+		};
+		class Item7
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2847.8486,41.277096,5540.5498};
+					};
+					side="East";
+					flags=3;
+					class Attributes
+					{
+					};
+					id=17;
+					type="o_survivor_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=16;
 		};
 	};
 	class Connections

@@ -3,7 +3,7 @@ if(!isDedicated) exitWith {};
 call compileFinal preprocessFileLineNumbers "core\server\coreFunctions.sqf";
 
 //load any previous save
-_handle = [] execVM "core\server\persistence\loadManager.sqf";
+_handle = [] execVM "core\server\system\persistence\loadManager.sqf";
 waitUntil {isNull _handle};
 
 //sector init

@@ -15,7 +15,7 @@ if(_sectorSide != WEST) then {
 		_sector setVariable ["condition", "active", false];
 
 		//create or update indication marker
-		[_sector, "ColorUNKOWN", SECTOR_RANGE] call F_createOrUpdateIndicationMarker;
+		[_sector, "ColorUNKNOWN", SECTOR_RANGE] call F_createOrUpdateIndicationMarker;
 
 		//run any scripts related to activating a sector
 		[SECTOR_ACTIVATION_SCRIPTS, [_sector]] call F_runArrayOfScriptsUnsynced;
@@ -31,7 +31,7 @@ if(_sectorSide != WEST) then {
 		if(_sectorCount == 0) then {
 			//reactivate the sector and change the color of the marker
 			_sector setVariable ["condition", "active", false];
-			[_sector, "ColorUNKOWN", SECTOR_RANGE] call F_createOrUpdateIndicationMarker;
+			[_sector, "ColorUNKNOWN", SECTOR_RANGE] call F_createOrUpdateIndicationMarker;
 		};
 	};
 };

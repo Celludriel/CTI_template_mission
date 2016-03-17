@@ -12,7 +12,7 @@ if(_sectorSide != WEST) then {
 	_opForCount = [_sector, SECTOR_RANGE, EAST] call F_getUnitCount;
 	_sectorState = _sector getVariable "condition";
 
-	if(_opForCount > 0 && _blueForCount > 0) then {
+	if(_opForCount > 0 && _blueForCount > 0 && _sectorState != "contested") then {
 		//contest the sector
 		_sector setVariable ["condition", "contested", false];
 
