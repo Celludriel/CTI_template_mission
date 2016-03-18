@@ -1,9 +1,13 @@
 if(!isDedicated) exitWith {};
 
-_ctiSaveGame = profileNamespace getVariable SAVEGAME_NAME;
+_clearSave = "ClearSave" call BIS_fnc_getParamValue;
+if(!isNil("_clearSave") && _clearSave == 1) then {
+	profileNamespace setVariable [SAVEGAME_NAME, nil];
+	saveProfileNamespace;
+};
 
-if ( !isNil "_ctiSaveGame" ) then {
-	_ctiSectorObjectData = _ctiSaveGame select 0;
+_ctiSectorObjectData = ["core"] call F_loadDataBlockInSaveContainer;
+if ( count _ctiSectorObjectData > 0 ) then {
 
 	{
 		_markerName = _x select 0;
@@ -19,5 +23,5 @@ if ( !isNil "_ctiSaveGame" ) then {
 		CTI_SECTOR_OBJECTS pushback _invisibleSectorObject;
 	} forEach _ctiSectorObjectData;
 
-	[LOAD_SCRIPTS, [_ctiSaveGame]] call F_runArrayOfScriptsUnsynced;
+	[LOAD_SCRIPTS, []] call F_runArrayOfScriptsUnsynced;
 };

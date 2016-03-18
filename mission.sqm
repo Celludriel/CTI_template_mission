@@ -35,11 +35,13 @@ randomSeed=9028453;
 class ScenarioData
 {
 	author="Celludriel";
-	overviewText="This is the template mission that can be used to create any kind of player VS AI Capture The Island experience.  The base template provides a way to spawn sectors of a given type, run into them to capture and end the mission when all of them are captured.  A modular approach will be taken to expand on this template and make more exiting missions.";
+	overviewText="CTI template: templated mission for building CTI missions";
 	respawn=3;
 	class Header
 	{
 		gameType="CTI";
+		minPlayers = 1;
+		maxPlayers = 8;		
 	};
 	wreckManagerMode="AddAll";
 	corpseManagerMode="AddAll";

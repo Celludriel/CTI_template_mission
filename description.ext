@@ -1,0 +1,6 @@
+enableDebugConsole = 1;
+
+class Params
+{
+	#include "core\server\core_params.hpp"
+};

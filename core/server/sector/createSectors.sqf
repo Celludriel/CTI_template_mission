@@ -18,6 +18,8 @@ if(!isDedicated) exitWith {};
 		_invisibleSectorObject setVariable ["side", east, false];
 		_invisibleSectorObject setVariable ["condition", "neutral", false];
 
+		[SECTOR_CREATED_SCRIPTS, [_invisibleSectorObject]] call F_runArrayOfScriptsUnsynced;
+
 		CTI_SECTOR_OBJECTS pushback _invisibleSectorObject;
 	};
 
