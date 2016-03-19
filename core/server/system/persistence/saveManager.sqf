@@ -8,7 +8,6 @@ if(!SAVE_LOCK) then {
 		_sectorData = [];
 		_sectorData pushBack (_x getVariable "markerName");
 		_sectorData pushBack (_x getVariable "side");
-		_sectorData pushBack (_x getVariable "condition");
 		_ctiSectorObjectData pushBack _sectorData;
 	} forEach CTI_SECTOR_OBJECTS;
 

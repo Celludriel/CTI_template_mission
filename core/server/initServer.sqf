@@ -1,6 +1,10 @@
 if(!isDedicated) exitWith {};
 
+//load all server core functions
 call compileFinal preprocessFileLineNumbers "core\server\coreFunctions.sqf";
+
+//load all server rules
+sectorControlRule = compileFinal preprocessFileLineNumbers SECTOR_CONTROL_RULE_SCRIPT;
 
 //load any previous save
 _handle = [] execVM "core\server\system\persistence\loadManager.sqf";

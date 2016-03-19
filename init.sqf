@@ -5,4 +5,7 @@ call compileFinal preprocessFileLineNumbers "core\shared\coreConstants.sqf";
 call compileFinal preprocessFileLineNumbers "core\shared\coreFunctions.sqf";
 
 // init server scripts
-[] execVM "core\server\initGame.sqf";
+[] execVM "core\server\initServer.sqf";
+
+// init client scripts
+[] execVM "core\client\initClient.sqf";
