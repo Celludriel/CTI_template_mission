@@ -4,3 +4,16 @@ class Params
 {
 	#include "core\server\core_params.hpp"
 };
+
+class CfgDebriefing
+{
+	class End1
+	{
+		title = "Mission Completed";
+		subtitle = "";
+		description = "You captured all bases";
+		pictureBackground = "";
+		picture = "b_inf";
+		pictureColor[] = {0.0,0.3,0.6,1};
+	};
+};

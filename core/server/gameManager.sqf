@@ -32,7 +32,7 @@ if(_allSectorsBLUFOR) then {
 	profileNamespace setVariable [SAVEGAME_NAME, nil];
 	saveProfileNamespace;
 	//end the mission
-	["end1", true, true] call BIS_fnc_endMission;
+	"end1" call BIS_fnc_endMission;
 };
 
 PRESENCE_MANAGER_RUNNING = false;

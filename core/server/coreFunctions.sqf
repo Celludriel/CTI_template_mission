@@ -17,6 +17,7 @@ F_setIndicatorMarker = compileFinal preprocessFileLineNumbers "core\server\syste
 F_deleteIndicatorMarker = compileFinal preprocessFileLineNumbers "core\server\system\functions\F_deleteIndicatorMarker.sqf";
 F_createOrUpdateIndicationMarker = compileFinal preprocessFileLineNumbers "core\server\system\functions\F_createOrUpdateIndicationMarker.sqf";
 F_spawnInvisibleObject = compileFinal preprocessFileLineNumbers "core\server\system\functions\F_spawnInvisibleObject.sqf";
+F_getIconTypeForSector = compileFinal preprocessFileLineNumbers "core\server\system\functions\F_getIconTypeForSector.sqf";
 
 //persistance scripts
 F_storeDataBlockInSaveContainer = compileFinal preprocessFileLineNumbers "core\server\system\functions\F_storeDataBlockInSaveContainer.sqf";
