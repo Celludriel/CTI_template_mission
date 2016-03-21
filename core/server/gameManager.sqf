@@ -2,7 +2,8 @@ if (!isDedicated or PRESENCE_MANAGER_RUNNING) exitWith {};
 
 PRESENCE_MANAGER_RUNNING = true;
 
-_allSectorsBLUFOR = true;
+_sectorCountBlUFOR = 0;
+_sectorCountOPFOR = 0;
 {
 	//check if a sector needs to be deactivated
 	_handle = [_x] execVM "core\server\sector\sectorDeActivationHandler.sqf";
@@ -21,18 +22,20 @@ _allSectorsBLUFOR = true;
 	waitUntil {isNull _handle};
 
 	if(_x getVariable "side" == east) then {
-		_allSectorsBLUFOR = false;
+		_sectorCountOPFOR = _sectorCountOPFOR + 1;
+	} else {
+		_sectorCountBlUFOR = _sectorCountBlUFOR + 1;
 	};
 } forEach CTI_SECTOR_OBJECTS;
 
-if(_allSectorsBLUFOR) then {
+if([_sectorCountBLUFOR, _sectorCountOPFOR, count CTI_SECTOR_OBJECTS] call gameEndingRule) then {
 	//stop the hearthbeat scripts
 	GAME_RUNNING = false;
 	//clear the savegame so next mission will start clean
 	profileNamespace setVariable [SAVEGAME_NAME, nil];
 	saveProfileNamespace;
 	//end the mission
-	"end1" call BIS_fnc_endMission;
+	"end1" call BIS_fnc_endMissionServer;
 };
 
 PRESENCE_MANAGER_RUNNING = false;

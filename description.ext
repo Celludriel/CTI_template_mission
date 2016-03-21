@@ -2,7 +2,7 @@ enableDebugConsole = 1;
 
 class Params
 {
-	#include "core\server\core_params.hpp"
+	#include "core\server\coreParams.hpp"
 };
 
 class CfgDebriefing
@@ -11,7 +11,7 @@ class CfgDebriefing
 	{
 		title = "Mission Completed";
 		subtitle = "";
-		description = "You captured all bases";
+		description = "You captured all sectors";
 		pictureBackground = "";
 		picture = "b_inf";
 		pictureColor[] = {0.0,0.3,0.6,1};

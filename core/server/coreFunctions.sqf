@@ -3,6 +3,8 @@ if(!isDedicated) exitWith {};
 [["Loading server core functions"]] call F_log;
 
 //extention scripts
+F_addPreServerInitScript = compileFinal preprocessFileLineNumbers "core\server\system\functions\F_addPreServerInitScript.sqf";
+F_addPostServerInitScript = compileFinal preprocessFileLineNumbers "core\server\system\functions\F_addPostServerInitScript.sqf";
 F_addOneSecondHearthbeatScript = compileFinal preprocessFileLineNumbers "core\server\system\functions\F_addOneSecondHearthbeatScript.sqf";
 F_addFiveMinuteHearthbeatScript = compileFinal preprocessFileLineNumbers "core\server\system\functions\F_addFiveMinuteHearthbeatScript.sqf";
 F_addSectorActivationScript = compileFinal preprocessFileLineNumbers "core\server\system\functions\F_addSectorActivationScript.sqf";
@@ -22,5 +24,6 @@ F_getIconTypeForSector = compileFinal preprocessFileLineNumbers "core\server\sys
 //persistance scripts
 F_storeDataBlockInSaveContainer = compileFinal preprocessFileLineNumbers "core\server\system\functions\F_storeDataBlockInSaveContainer.sqf";
 F_loadDataBlockInSaveContainer = compileFinal preprocessFileLineNumbers "core\server\system\functions\F_loadDataBlockInSaveContainer.sqf";
+F_addSectorType = compileFinal preprocessFileLineNumbers "core\server\system\functions\F_addSectorType.sqf";
 
 [["Loaded server core functions"]] call F_log;

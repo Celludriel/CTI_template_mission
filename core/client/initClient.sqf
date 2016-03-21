@@ -12,6 +12,6 @@ if(hasInterface) then {
 	//add all Respawn handlers to the player
 	{
 		[["Adding Respawn handler: %1", _x]] call F_log;
-  	player addEventhandler ["Respawn", "_this execVM '" + _x + "'"];
+  		player addEventhandler ["Respawn", "_this execVM '" + _x + "'"];
 	} foreach RESPAWN_SCRIPTS;
 };
