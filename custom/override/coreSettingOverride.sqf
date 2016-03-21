@@ -16,4 +16,4 @@ if(!isDedicated) exitWith {};
 // SECTOR_CONTROL_RULE_SCRIPT = "core\server\sector\sectorControlRule.sqf";
 
 // Script that decides when the game should end must return a boolean.  Parameters passed to the script: (amount of sectors in OPFOR hands), (amount of sectors in BLUFOR hands), (total amount of sectors)
-// GAME_ENDING_RULE_SCRIPT = "core\server\system\game\gameEndingRule.sqf";
+// GAME_ENDING_RULE_SCRIPT = "core\server\game\gameEndingRule.sqf";

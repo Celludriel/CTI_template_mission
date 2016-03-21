@@ -12,7 +12,7 @@ gameEndingRule = compileFinal preprocessFileLineNumbers GAME_ENDING_RULE_SCRIPT;
 [PRE_INIT_SERVER_SCRIPTS, []] call F_runArrayOfScriptsUnsynced;
 
 //load any previous save
-_handle = [] execVM "core\server\system\persistence\loadManager.sqf";
+_handle = [] execVM "core\server\persistence\loadManager.sqf";
 waitUntil {isNull _handle};
 
 //sector init
@@ -24,12 +24,12 @@ waitUntil {isNull _handle};
 [["End sector initiation"]] call F_log;
 
 //autosave init
-["core\server\system\persistence\saveManager.sqf"] call F_addFiveMinuteHearthbeatScript;
+["core\server\persistence\saveManager.sqf"] call F_addFiveMinuteHearthbeatScript;
 
 //hearthbeat startup
 [["Start hearthbeats startup"]] call F_log;
-[] execVM "core\server\system\hearthbeat\oneSecondHearthbeat.sqf";
-[] execVM "core\server\system\hearthbeat\fiveMinuteHearthbeat.sqf";
+[] execVM "core\server\hearthbeat\oneSecondHearthbeat.sqf";
+[] execVM "core\server\hearthbeat\fiveMinuteHearthbeat.sqf";
 [["End hearthbeats startup"]] call F_log;
 
 //load any custom post server init scripts
