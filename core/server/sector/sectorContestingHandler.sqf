@@ -1,18 +1,16 @@
 if (!isDedicated) exitWith {};
 
-params ["_sector"];
-private "_sector";
+params ["_sector", "_sectorBLUFORcount", "_sectorOPFORcount"];
+private ["_sector", "_sectorBLUFORcount", "_sectorOPFORcount"];
 
 // a sector can only contested if it's not of the BlueFor side
 _sectorSide = _sector getVariable "side";
 _sectorLocation = getpos _sector;
 
 if(_sectorSide != WEST) then {
-	_blueForCount = [_sector, SECTOR_RANGE, WEST] call F_getUnitCount;
-	_opForCount = [_sector, SECTOR_RANGE, EAST] call F_getUnitCount;
 	_sectorState = _sector getVariable "condition";
 
-	if(_opForCount > 0 && _blueForCount > 0 && _sectorState != "contested") then {
+	if(_sectorOPFORcount > 0 && _sectorBLUFORcount > 0 && _sectorState != "contested") then {
 		//contest the sector
 		_sector setVariable ["condition", "contested", false];
 
@@ -20,6 +18,6 @@ if(_sectorSide != WEST) then {
 		[_sector, "ColorOPFOR", SECTOR_RANGE] call F_createOrUpdateIndicationMarker;
 
 		//run any scripts related to contesting a sector
-		[SECTOR_CONTESTED_SCRIPTS, [_sector]] call F_runArrayOfScriptsUnsynced;
+		[SECTOR_CONTESTED_SCRIPTS, [_sector, _sectorBLUFORcount, _sectorOPFORcount]] call F_runArrayOfScriptsUnsynced;
 	};
 };
