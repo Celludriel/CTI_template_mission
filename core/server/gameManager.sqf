@@ -25,13 +25,13 @@ _sectorCountOPFOR = 0;
 
 		//check if sector needs to change side
 		_handle = [_x, _sectorBLUFORcount, _sectorOPFORcount] execVM "core\server\sector\sectorControlHandler.sqf";
-		waitUntil {isNull _handle};
+		waitUntil {isNull _handle};S
+	};
 
-		if(_x getVariable "side" == east) then {
-			_sectorCountOPFOR = _sectorCountOPFOR + 1;
-		} else {
-			_sectorCountBlUFOR = _sectorCountBlUFOR + 1;
-		};
+	if(_x getVariable "side" == east) then {
+		_sectorCountOPFOR = _sectorCountOPFOR + 1;
+	} else {
+		_sectorCountBlUFOR = _sectorCountBlUFOR + 1;
 	};
 } forEach CTI_SECTOR_OBJECTS;
 
