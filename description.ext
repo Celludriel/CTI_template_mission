@@ -1,9 +1,4 @@
-respawn = 3;
-respawndelay = 5;
-disabledAI = true;
 enableDebugConsole = 1;
-
-#include "interface.hpp"
 
 class Params
 {

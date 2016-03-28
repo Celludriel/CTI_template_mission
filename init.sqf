@@ -5,7 +5,9 @@ call compileFinal preprocessFileLineNumbers "core\shared\coreSharedConstants.sqf
 call compileFinal preprocessFileLineNumbers "core\shared\coreFunctions.sqf";
 
 // init server scripts
-[] execVM "core\server\initServer.sqf";
+_handle = [] execVM "core\server\initServer.sqf";
+waitUntil {isNull _handle};
 
 // init client scripts
-[] execVM "core\client\initClient.sqf";
+_handle = [] execVM "core\client\initClient.sqf";
+waitUntil {isNull _handle};

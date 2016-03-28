@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Project name="Simple CTI">
-	<Package name="Simple CTI">
+<Project name="<your project name>">
+	<Package name="<your main package>">
         <Container name="Core">
             <Key ID="STR_PARAMS_CORE_OPTIONS">
                 <Original>Core options</Original>
