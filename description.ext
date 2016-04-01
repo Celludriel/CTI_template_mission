@@ -5,6 +5,13 @@ class Params
 	#include "core\server\coreParams.hpp"
 };
 
+class CfgFunctions
+{
+	#include "core\server\CfgFunctions.hpp"
+	#include "core\shared\CfgFunctions.hpp"
+	#include "core\client\CfgFunctions.hpp"
+};
+
 class CfgDebriefing
 {
 	class End1

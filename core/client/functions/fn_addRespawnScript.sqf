@@ -3,5 +3,5 @@ if(hasInterface) then {
 
 	RESPAWN_SCRIPTS pushBack _script;
 
-	[["RESPAWN_SCRIPTS: %1", RESPAWN_SCRIPTS]] call F_log;
+	[["RESPAWN_SCRIPTS: %1", RESPAWN_SCRIPTS]] call CTISHR_fnc_ctiLog;
 };
