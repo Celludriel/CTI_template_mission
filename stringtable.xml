@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project name="<your project name>">
+	<Package name="<your main package>">
+        <Container name="Core">
+            <Key ID="STR_PARAMS_CORE_OPTIONS">
+                <Original>Core options</Original>
+                <French>Options de base</French>
+                <German>Core Optionen</German>
+                <Spanish>Opciones básicas</Spanish>
+            </Key>
+            <Key ID="STR_PARAMS_CLEAR_SAVE">
+                <Original>Clear savegame</Original>
+                <French>Effacer savegame</French>
+                <German>Klar savegame</German>
+                <Spanish>Claro partida guardada</Spanish>
+            </Key>
+            <Key ID="STR_OPTION_YES">
+                <Original>Yes</Original>
+                <French>Oui</French>
+                <German>Ja</German>
+                <Spanish>Sí</Spanish>
+            </Key>
+            <Key ID="STR_OPTION_NO">
+                <Original>No</Original>
+                <French>Non</French>
+                <German>Nein</German>
+                <Spanish>No</Spanish>
+            </Key>
+        </Container>
+	</Package>
+</Project>
