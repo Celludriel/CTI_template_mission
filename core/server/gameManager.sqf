@@ -1,7 +1,6 @@
 if (!isDedicated or PRESENCE_MANAGER_RUNNING) exitWith {};
 
 PRESENCE_MANAGER_RUNNING = true;
-//diag_log format ["Before loop %1", time];
 
 _sectorCountBlUFOR = 0;
 _sectorCountOPFOR = 0;
@@ -23,6 +22,10 @@ _sectorCountOPFOR = 0;
 		_handle = [_x, _sectorBLUFORcount, _sectorOPFORcount] execVM "core\server\sector\sectorContestingHandler.sqf";
 		waitUntil {isNull _handle};
 
+		//check if stuck units backup mechanism has to trigger
+		_handle = [_x, _sectorOPFORcount] execVM "core\server\sector\stuckUnitsBackupHandler.sqf";
+		waitUntil {isNull _handle};
+		
 		//check if sector needs to change side
 		_handle = [_x, _sectorBLUFORcount, _sectorOPFORcount] execVM "core\server\sector\sectorControlHandler.sqf";
 		waitUntil {isNull _handle};

@@ -6,7 +6,7 @@ SAVEGAME_NAME = "CTI_TEMPLATE";
 CTI_SECTOR_OBJECTS = [];
 SECTOR_COMPLETED_MESSAGE = "<t align='center' size='2.2'>AO Complete</t><br/><t size='1.5' align='center' color='#00FF80'>%1</t><br/>____________________<br/><t align='left'>Fantastic job at %1, boys! Give us a moment here at HQ and we'll line up your next target.</t>";
 
-// Expantion scripts
+// Expansion scripts
 PRE_INIT_SERVER_SCRIPTS = [];
 POST_INIT_SERVER_SCRIPTS = [];
 
@@ -29,6 +29,7 @@ SECTOR_RANGE = 300;
 PRESENCE_MANAGER_RUNNING = false;
 SECONDS_TO_DEACTIVATION = 60;
 SECTOR_TYPES = [["sec_town", "n_art"],["sec_fuel", "loc_Fuelstation"],["sec_base", "o_uav"],["sec_towr", "loc_Transmitter"]];
+SECTOR_MAX_LEFTOVER_UNITS = 2;
 
 // Rules
 SECTOR_CONTROL_RULE_SCRIPT = "core\server\sector\sectorControlRule.sqf";
